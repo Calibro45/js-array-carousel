@@ -50,7 +50,7 @@ let activeElement = 0;
 
 // creo il ciclo per le immagini del carusel
 
-for (let i = 0; i < title.length; i++) {
+for (let i = 0; i < items.length; i++) {
 
     //console.log(title[i]);
 
@@ -154,14 +154,20 @@ for (let i = 0; i < previewSlide.length; i++) {
     const controls = previewSlide[i];
     //console.log(controls);
 
-    // aggiungo event listener per le preciw
+    // aggiungo event listener per le preview 
 
     controls.addEventListener('click', function() {
+
+        // tolgo active al preview
 
         itemsSlide[activeElement].classList.remove('active');
         previewSlide[activeElement].classList.remove('active');
 
+        // setto contatore 
+
         activeElement = i
+
+        // aggiungo active
 
         itemsSlide[activeElement].classList.add('active');
         previewSlide[activeElement].classList.add('active');
