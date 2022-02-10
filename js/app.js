@@ -87,14 +87,35 @@ itemsSlide[activeElement].classList.add('active');
 
 arrowDown.addEventListener('click', function() {
     
-    // rimuovere la classe active 
-    itemsSlide[activeElement].classList.remove('active');
+    if (activeElement < itemsSlide.length - 1) {
 
-    // incrementare il contatore o diminuire
-    activeElement++
-
-    // aggiungere la classe active
-    itemsSlide[activeElement].classList.add('active');
+        // rimuovere la classe active 
+        itemsSlide[activeElement].classList.remove('active');
     
+        // incrementare il contatore o diminuire
+        activeElement++
+    
+        // aggiungere la classe active
+        itemsSlide[activeElement].classList.add('active');
+
+    }
+
+})
+
+arrowUp.addEventListener('click', function() {
+
+    if (activeElement > 0 ) {
+
+        // rimuovere la classe active 
+        itemsSlide[activeElement].classList.remove('active');
+        
+        // incrementare il contatore o diminuire
+        activeElement--
+        
+        // aggiungere la classe active
+        itemsSlide[activeElement].classList.add('active');
+        
+    }
+
 })
 
