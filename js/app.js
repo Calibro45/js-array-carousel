@@ -30,7 +30,15 @@ console.log(slider);
 const slideWrapper = document.querySelector('.slide-wrapper');
 //console.log(slideWrapper);
 
+// recupero dal DOM i bottoni per le slide
+
+const arrowUp = document.getElementsByClassName('arrow-up');
+const arrowDown = document.getElementsByClassName('arrow-down');
+//console.log(arrowUp, arrowDown);
+
 // creo il ciclo per le immagini del carusel
+
+let activeElement = 0;
 
 for (let i = 0; i < title.length; i++) {
 
@@ -57,6 +65,7 @@ for (let i = 0; i < title.length; i++) {
 
     if (i == 0) {
         item.classList.add('active');
+        activeElement = 0;
     }
 
     img.src = items[i];
