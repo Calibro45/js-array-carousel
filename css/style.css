@@ -19,7 +19,7 @@ ol, ul {
 }
 
 main {
-    padding: 50px 20px;
+    padding: 100px 20px;
 }
 
 .slider {
@@ -30,7 +30,7 @@ main {
 
 .item {
     height: 30vw;
-    display: none;
+    /* display: none; */
 }
 
 .item img {
