@@ -25,15 +25,15 @@ const text = [
 
 // recupero dal DOM i contenitori del carusel
 
-const slider = document.getElementsByClassName('slider');
+const slider = document.getElementsByClassName('slider')[0];
 console.log(slider);
 const slideWrapper = document.querySelector('.slide-wrapper');
 //console.log(slideWrapper);
 
 // recupero dal DOM i bottoni per le slide
 
-const arrowUp = document.getElementsByClassName('arrow-up');
-const arrowDown = document.getElementsByClassName('arrow-down');
+const arrowUp = document.getElementsByClassName('arrow-up')[0];
+const arrowDown = document.getElementsByClassName('arrow-down')[0];
 //console.log(arrowUp, arrowDown);
 
 // imposto una variabile contatore per impostare l'active
@@ -49,7 +49,7 @@ for (let i = 0; i < title.length; i++) {
     // creo l'elementi che andranno nel DOM 
 
     const item = document.createElement('div');
-    console.log(item);
+    //console.log(item);
     const img = document.createElement('img');
     //console.log(img);
     const descWrap = document.createElement('div');
@@ -79,4 +79,22 @@ for (let i = 0; i < title.length; i++) {
 const itemsSlide = [...document.getElementsByClassName('item')];
 console.log(itemsSlide);
 
-itemsSlide[0].classList.add('active');
+// aggiungo la classe active all'elemneto corrente
+
+itemsSlide[activeElement].classList.add('active');
+
+// ascoltare l'evento click
+
+arrowDown.addEventListener('click', function() {
+    
+    // rimuovere la classe active 
+    itemsSlide[activeElement].classList.remove('active');
+
+    // incrementare il contatore o diminuire
+    activeElement++
+
+    // aggiungere la classe active
+    itemsSlide[activeElement].classList.add('active');
+    
+})
+
