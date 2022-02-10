@@ -27,8 +27,16 @@ const text = [
 
 const slider = document.getElementsByClassName('slider')[0];
 console.log(slider);
+
 const slideWrapper = document.querySelector('.slide-wrapper');
 //console.log(slideWrapper);
+
+// recupero dal DOM i controlli del carusel e li appendo
+
+const controlsWrapper = document.createElement('ol');
+controlsWrapper.classList.add('controls-wrapper');
+slider.append(controlsWrapper);
+//console.log(controlsWrapper);
 
 // recupero dal DOM i bottoni per le slide
 
@@ -46,7 +54,7 @@ for (let i = 0; i < title.length; i++) {
 
     //console.log(title[i]);
 
-    // creo l'elementi che andranno nel DOM 
+    // creo elementi che andranno nel DOM 
 
     const item = document.createElement('div');
     //console.log(item);
@@ -58,19 +66,29 @@ for (let i = 0; i < title.length; i++) {
     //console.log(imgTitle);
     const imgText = `<p class="subtitle">${text[i]}</p>`;
     //console.log(imgText);
-
-    // aggiungo classi agli elementi
-
-    item.classList.add('item');
+    const li = document.createElement('li');
+    //console.log(li);
+    const imgControl = document.createElement('img');
+    
+    // src img
 
     img.src = items[i];
-    descWrap.classList.add('desc-wrap');
+    imgControl.src =items[i];
+
+    // aggiungo classi agli elementi
     
+    item.classList.add('item');
+    descWrap.classList.add('desc-wrap');
+    li.classList.add('controls');
+
     // metto gli elementi creati nel DOM
     
     slideWrapper.append(item);
     item.append(img, descWrap);
     descWrap.innerHTML = imgTitle + imgText;
+
+    controlsWrapper.append(li);
+    li.append(imgControl);
 
 }
 
