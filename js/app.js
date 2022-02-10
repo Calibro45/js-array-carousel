@@ -26,7 +26,7 @@ const text = [
 // recupero dal DOM i contenitori del carusel
 
 const slider = document.getElementsByClassName('slider')[0];
-console.log(slider);
+//console.log(slider);
 
 const slideWrapper = document.querySelector('.slide-wrapper');
 //console.log(slideWrapper);
@@ -86,16 +86,23 @@ for (let i = 0; i < title.length; i++) {
     slideWrapper.append(item);
     item.append(img, descWrap);
     descWrap.innerHTML = imgTitle + imgText;
-
+    
     controlsWrapper.append(li);
     li.append(imgControl);
-
+    
 }
 
 // recupero dal DOM gli elementi creati e inseriti e li metto in un array
 
 const itemsSlide = [...document.getElementsByClassName('item')];
-console.log(itemsSlide);
+//console.log(itemsSlide);
+
+// creo un array con la lista controlli img dal DOM e imposto active corrente
+
+const previewSlide = [...document.getElementsByClassName('controls')];
+//console.log(previewSlide);
+
+previewSlide[activeElement].classList.add('active');
 
 // aggiungo la classe active all'elemneto corrente
 
@@ -109,12 +116,14 @@ arrowDown.addEventListener('click', function() {
 
         // rimuovere la classe active 
         itemsSlide[activeElement].classList.remove('active');
+        previewSlide[activeElement].classList.remove('active');
     
         // incrementare il contatore o diminuire
         activeElement++
     
         // aggiungere la classe active
         itemsSlide[activeElement].classList.add('active');
+        previewSlide[activeElement].classList.add('active');
 
     }
 
@@ -126,14 +135,39 @@ arrowUp.addEventListener('click', function() {
 
         // rimuovere la classe active 
         itemsSlide[activeElement].classList.remove('active');
-        
+        previewSlide[activeElement].classList.remove('active');
+
         // incrementare il contatore o diminuire
         activeElement--
         
         // aggiungere la classe active
         itemsSlide[activeElement].classList.add('active');
-        
+        previewSlide[activeElement].classList.add('active');
     }
 
 })
+
+// setto il ciclo per le preview slides
+
+for (let i = 0; i < previewSlide.length; i++) {
+
+    const controls = previewSlide[i];
+    //console.log(controls);
+
+    // aggiungo event listener per le preciw
+
+    controls.addEventListener('click', function() {
+
+        itemsSlide[activeElement].classList.remove('active');
+        previewSlide[activeElement].classList.remove('active');
+
+        activeElement = i
+
+        itemsSlide[activeElement].classList.add('active');
+        previewSlide[activeElement].classList.add('active');
+
+    })
+    
+}
+
 
