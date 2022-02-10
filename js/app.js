@@ -23,23 +23,43 @@ const text = [
 ];
 //console.log(items, title, text);
 
-// recupero dal DOM il contenitore delle immagini
+// recupero dal DOM i contenitori del carusel
 
+const slider = document.getElementsByClassName('slider');
+console.log(slider);
 const slideWrapper = document.querySelector('.slide-wrapper');
 //console.log(slideWrapper);
 
 // creo il ciclo per le immagini del carusel
 
-for (let i = 0; i < items.length; i++) {
+for (let i = 0; i < title.length; i++) {
 
-    // creo l'elemento che andrà nel DOM 
+    //console.log(title[i]);
+
+    // creo l'elementi che andranno nel DOM 
 
     const item = document.createElement('div');
     console.log(item);
     const img = document.createElement('img');
     console.log(img);
+    const descWrap = document.createElement('div');
+    console.log(descWrap);
+    const imgTitle = `<h3 class="title">${title[i]}</h3>`;
+    //console.log(imgTitle);
+    const imgText = `<p class="subtitle">${text[i]}</p>`;
+    //console.log(imgText);
+
+    // aggiungo classi agli elementi
 
     item.classList.add('item');
+    img.src = items[i];
+    descWrap.classList.add('desc-wrap');
 
+    descWrap.innerHTML = imgTitle + imgText;
+    
+    // metto gli elementi creati nel DOM
+
+    slideWrapper.append(item);
+    item.append(img, descWrap);
 
 }
