@@ -36,9 +36,11 @@ const arrowUp = document.getElementsByClassName('arrow-up');
 const arrowDown = document.getElementsByClassName('arrow-down');
 //console.log(arrowUp, arrowDown);
 
-// creo il ciclo per le immagini del carusel
+// imposto una variabile contatore per impostare l'active
 
 let activeElement = 0;
+
+// creo il ciclo per le immagini del carusel
 
 for (let i = 0; i < title.length; i++) {
 
@@ -49,9 +51,9 @@ for (let i = 0; i < title.length; i++) {
     const item = document.createElement('div');
     console.log(item);
     const img = document.createElement('img');
-    console.log(img);
+    //console.log(img);
     const descWrap = document.createElement('div');
-    console.log(descWrap);
+    //console.log(descWrap);
     const imgTitle = `<h3 class="title">${title[i]}</h3>`;
     //console.log(imgTitle);
     const imgText = `<p class="subtitle">${text[i]}</p>`;
@@ -60,13 +62,6 @@ for (let i = 0; i < title.length; i++) {
     // aggiungo classi agli elementi
 
     item.classList.add('item');
-
-    // se l'item è 0 metti active
-
-    if (i == 0) {
-        item.classList.add('active');
-        activeElement = 0;
-    }
 
     img.src = items[i];
     descWrap.classList.add('desc-wrap');
@@ -78,3 +73,10 @@ for (let i = 0; i < title.length; i++) {
     descWrap.innerHTML = imgTitle + imgText;
 
 }
+
+// recupero dal DOM gli elementi creati e inseriti e li metto in un array
+
+const itemsSlide = [...document.getElementsByClassName('item')];
+console.log(itemsSlide);
+
+itemsSlide[0].classList.add('active');
