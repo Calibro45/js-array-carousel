@@ -52,14 +52,20 @@ for (let i = 0; i < title.length; i++) {
     // aggiungo classi agli elementi
 
     item.classList.add('item');
+
+    // se l'item è 0 metti active
+
+    if (i == 0) {
+        item.classList.add('active');
+    }
+
     img.src = items[i];
     descWrap.classList.add('desc-wrap');
-
-    descWrap.innerHTML = imgTitle + imgText;
     
     // metto gli elementi creati nel DOM
-
+    
     slideWrapper.append(item);
     item.append(img, descWrap);
+    descWrap.innerHTML = imgTitle + imgText;
 
 }

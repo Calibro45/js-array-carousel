@@ -30,7 +30,7 @@ main {
 
 .item {
     height: 30vw;
-    /* display: none; */
+    display: none;
 }
 
 .item img {
