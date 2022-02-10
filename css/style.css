@@ -11,6 +11,7 @@ html {
 img {
     width: 100%;
     display: block;
+    height: 100%;
 }
 
 ol, ul {
@@ -48,12 +49,11 @@ main {
     align-items: flex-end;
     font-size: 18px;
     position: absolute;
-    top: 20px;
-    bottom: 20px;
+    top: 5%;
+    bottom: 5%;
     width: 100%;
     justify-content: space-between;
     z-index: 1;
-    padding-right: 85px;
 }
 
 .arrow-up,
@@ -71,11 +71,13 @@ main {
     position: absolute;
     top: 0;
     width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
 }
 
 .controls-wrapper .controls {
-    max-width: calc(100% / 5);
+    height: calc(100% / 5);
+    aspect-ratio: 16/9;
 }
