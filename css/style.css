@@ -13,6 +13,10 @@ img {
     display: block;
 }
 
+ol, ul {
+    list-style-type: none;
+}
+
 main {
     padding: 50px 20px;
 }
@@ -44,11 +48,12 @@ main {
     align-items: flex-end;
     font-size: 18px;
     position: absolute;
-    top: 0;
-    bottom: 0;
+    top: 20px;
+    bottom: 20px;
     width: 100%;
     justify-content: space-between;
-    padding: 20px 50px;
+    z-index: 1;
+    padding-right: 85px;
 }
 
 .arrow-up,
@@ -60,4 +65,17 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.controls-wrapper {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.controls-wrapper .controls {
+    max-width: calc(100% / 5);
 }
